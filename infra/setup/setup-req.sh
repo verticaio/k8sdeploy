@@ -36,9 +36,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker info 
 docker-compose --version
 
-# Enable sonatype nexus for image store
-cd /opt/k8sdeploy/infra/setup/tools
-
 
 # Install Nginx
 apt-get install nginx -y 
@@ -46,7 +43,6 @@ nginx -v
 systemctl status nginx
 
 
-# Copy Nginx config jenkins, nexus, custom app 
 
 # Install MiniKube
 wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -61,6 +57,10 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s http
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 kubectl version -o yaml
+
+# Install helm
+snap install helm --classic 
+helm version
 
 # Add user to start miikube with Docker driver
 useradd -s /bin/bash -d /home/docker -g docker -m -G sudo  docker 
@@ -81,6 +81,6 @@ kubectl get pods
 kubectl expose deployment my-nginx --name=my-nginx-svc --type=NodePort --port=80
 kubectl get svc my-nginx-svc
 minikube service my-nginx-svc --url
-curl http://192.168.49.2:30550
+# curl http://192.168.49.2:30550
 
 
