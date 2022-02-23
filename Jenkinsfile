@@ -56,15 +56,15 @@ pipeline {
                 echo 'Checking deploy application k8s ....'
                 sh """
                 sudo kubectl rollout status deployment $MS_NAME -n $PROJECT_NAME  --kubeconfig $KUBE_CREDS  
-                export resCode=\$?
-                if [ $resCode -eq 0 ]; then
+                if [ \$? -eq 0 ]; then
                     echo "Application deployed succesfully ..."
+                    exit 0
                 else 
                     echo "Problem encontered when when deploying"
                     sudo helm rollback $MS_NAME  0 --kubeconfig $KUBE_CREDS
                     echo "App rollback started..."
+                    exit 1
                 fi
-                exit $resCode
                 """
             }
         }   
