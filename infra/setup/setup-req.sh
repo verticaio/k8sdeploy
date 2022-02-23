@@ -37,13 +37,6 @@ docker info
 docker-compose --version
 
 
-# Install Nginx
-apt-get install nginx -y 
-nginx -v 
-systemctl status nginx
-
-
-
 # Install MiniKube
 wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo cp minikube-linux-amd64 /usr/local/bin/minikube
