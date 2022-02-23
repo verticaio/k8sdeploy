@@ -30,4 +30,4 @@ curl http://localhost:8080 , steps clone(first install git)
 10. multibranh pipeline in jenkins and shared libs with groovy
 11. notify to slack 
 12. Get Jenkins from Hachicorp Vault
-
+13. clean ws jenkins fix scripts good readme 

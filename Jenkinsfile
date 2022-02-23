@@ -49,7 +49,14 @@ pipeline {
                 echo 'Start deploy application k8s ....'
                 sh "cd infra/helm_chart ; sudo helm upgrade --install  $MS_NAME  .  -f ${DEPLOY_ENV}.yaml --kubeconfig $KUBE_CREDS  -n $PROJECT_NAME --set image.name=$MS_NAME,image.tag=$BUILD_TIMESTAMP"
             }
-        }                    
+        }      
+
+        stage('Check Deployment') {
+            steps {
+                echo 'Checking deploy application k8s ....'
+                sh "sudo kubectl rollout status deployment $MS_NAME -n $PROJECT_NAME  --kubeconfig $KUBE_CREDS "
+            }
+        }   
 
     }
 }

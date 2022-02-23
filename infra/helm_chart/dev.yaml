@@ -4,7 +4,7 @@
 dockerRegistry: babakmammadov95
 imagePullSecrets: regcred
 
-replicaCount: 1
+replicaCount: 3
 
 image:
   name: nginx
@@ -72,9 +72,9 @@ resources:
     memory: 256Mi
 
 readinessProbe:
-  enabled: false
+  enabled: true
   httpGet:
-    path: actuator/health
+    path: /
     port: 8080
   initialDelaySeconds: 30
   periodSeconds: 10
@@ -83,7 +83,7 @@ readinessProbe:
   successThreshold: 1
 
 livenessProbe:
-  enabled: false
+  enabled: true
   httpGet:
     path: /
     port: 8080
