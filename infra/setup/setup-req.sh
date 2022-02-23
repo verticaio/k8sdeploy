@@ -14,9 +14,6 @@ sudo apt-get install jenkins -y
 # Check Jenkins
 systemctl status jenkins
 
-# Change jenkins default port 9999 , edit jenkins port /etc/default/jenkins HTTP_PORT
-# sudo service jenkins restart
-# sudo systemctl status jenkins
 
 # Get Jenkins Password
 cat /var/lib/jenkins/secrets/initialAdminPassword 
@@ -59,21 +56,13 @@ helm version
 useradd -s /bin/bash -d /home/docker -g docker -m -G sudo  docker 
 su - docker
 
-
 # Start minikube k8s cluster
 minikube start --addons=ingress --cpus=2 --cni=flannel --install-addons=true --kubernetes-version=stable --memory=6g --apiserver-ips=172.17.0.4
-#--apiserver-ips internal ip of vm    
 
 # Check minikube status
 minikube status
 kubectl cluster-info
 export KUBECONFIG=/home/docker/.kube/config 
-kubectl create deployment my-nginx --image=nginx
-kubectl get deployments.apps my-nginx
-kubectl get pods
-kubectl expose deployment my-nginx --name=my-nginx-svc --type=NodePort --port=80
-kubectl get svc my-nginx-svc
-minikube service my-nginx-svc --url
-# curl http://192.168.49.2:30550
+kubectl get nodes
 
 
