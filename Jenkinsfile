@@ -56,7 +56,7 @@ pipeline {
                 echo 'Checking deploy application k8s ....'
                 sh """
                 sudo kubectl rollout status deployment $MS_NAME -n $PROJECT_NAME  --kubeconfig $KUBE_CREDS  
-                resCode=\$?
+                export resCode=\$?
                 if [ $resCode -eq 0 ]; then
                     echo "Application deployed succesfully ..."
                 else 
