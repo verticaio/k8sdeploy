@@ -4,6 +4,7 @@
 ## About
 This repo contains simple python flask app ci processs, deployment to kubernetes minikube and guide of environment setup
 
+
 ## Tools List
 - Github
 - Linux Ubuntu
@@ -12,6 +13,19 @@ This repo contains simple python flask app ci processs, deployment to kubernetes
 - Minikube
 - HelmChart
 - Nginx
+  
+##  Improvement plan
+1. Automate Linux OS stuff with Ansible
+2. Prepare docker-compose  for Local development
+3. Use Nexus or Harbor for Docker images and  Helm Charts
+4. Add Testing stages CI/CD - unit, integraation, e2e and contract testing  
+5. Implement makefiles  for easy management repo
+6. Implement Sops encryption for encrypt sensitive data in under repo 
+7. Use kaniko for bulding docker image without need docker daemon
+8. Impelement  Security in CI/CD (Sonarqube, Docker,Code Scanning and Owaps10 after deploy) 
+9.  Multibranh pipeline  and shared libs with groovy in jenkins and implement conditional based branch deploy(GitFlow, Trunk Based Development)
+10. Notify Jobs Status to Slack 
+11. Get Jenkins Credentials and App credentials from Hachicorp Vault
 
 ## Local  App Testing
 ```
@@ -43,18 +57,5 @@ cd k8sdeploy/infra/setup
 
 ## Pipeline trigger flow 
 Jenkins Webhook triggered when you push something to main branch of repo.  
-
-##  Improvement plan: 
-1. Automate Linux OS stuff with Ansible
-2. Prepare docker-compose  for Local development
-3. Use Nexuso Harbor for Docker images and  Helm Charts
-4. Add Testing stages CI/CD - unit, integraation, e2e and contract testing  
-5. Implement makefiles  for easy management repo
-6. Implement Sops encryption for encrypt sensitive data in under repo 
-7. Use kaniko for bulding docker image without need docker daemon
-8. Impelement  Security in CI/CD (Sonarqube, Docker,Code Scanning and Owaps10 after deploy) 
-9.  Multibranh pipeline  and shared libs with groovy in jenkins and implement conditional based branch deploy(GitFlow, Trunk Based Development)
-10. Notify Jobs Status to Slack 
-11. Get Jenkins Credentials and App credentials from Hachicorp Vault
 
 Have fun :) 
