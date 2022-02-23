@@ -2,7 +2,7 @@
 ![Alt text](img/flow.png?raw=true "Architecture Diagram")
 
 ## About
-This repo contains simple python flask app ci processs, deployment of kubernetes minikube and guide of environment setup
+This repo contains simple python flask app ci processs, deployment to kubernetes minikube and guide of environment setup
 
 ## Tools List
 - Github
@@ -41,6 +41,9 @@ cd k8sdeploy/infra/setup
 [Jenkins Endpoint ](http://20.105.187.250:8080/) <br />
 [App Endpoint](http://20.105.187.250:8081/) <br />
 
+## Pipeline trigger flow 
+Jenkins Webhook triggered when you push something to main branch of repo.  
+
 ##  Improvement plan: 
 1. Automate Linux OS stuff with Ansible
 2. Prepare docker-compose  for Local development
@@ -53,3 +56,5 @@ cd k8sdeploy/infra/setup
 9.  Multibranh pipeline  and shared libs with groovy in jenkins and implement conditional based branch deploy(GitFlow, Trunk Based Development)
 10. Notify Jobs Status to Slack 
 11. Get Jenkins Credentials and App credentials from Hachicorp Vault
+
+Have fun :) 
