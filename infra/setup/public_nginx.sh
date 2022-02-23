@@ -28,6 +28,6 @@ if [ $resCode -eq 0 ]; then
 else 
     echo "Problem encontered when check nginx config"
 fi
-exit $retVal
+exit $resCode
 
 
